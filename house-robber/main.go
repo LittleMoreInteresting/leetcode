@@ -27,7 +27,7 @@ import "fmt"
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 func main() {
-	nums := []int{1, 2, 3, 1}
+	nums := []int{1, 2, 3, 1, 1}
 	//nums := []int{2,7,9,3,1}
 	robSum := rob(nums)
 	fmt.Println(robSum)
@@ -53,6 +53,10 @@ func rob(nums []int) int {
 				fmt.Printf("I%v\n", i-2)
 			}
 			fmt.Printf("I%v\n", i)
+		} else {
+			if i == 2 {
+				fmt.Printf("I%v\n", i-1)
+			}
 		}
 	}
 	return rebd[size-1]
