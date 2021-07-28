@@ -72,3 +72,10 @@ func (r *Ring) Link(s *Ring) *Ring {
 	}
 	return n
 }
+
+func (r *Ring) Unlink(n int) *Ring {
+	if n < 0 {
+		return nil
+	}
+	return r.Link(r.Move(n + 1))
+}

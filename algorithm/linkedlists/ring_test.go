@@ -22,4 +22,16 @@ func TestNewRing(t *testing.T) {
 			break
 		}
 	}
+
+	temp := r.Unlink(3)
+	fmt.Println("------")
+
+	node = temp
+	for {
+		fmt.Println(node.Value)
+		node = node.Next()
+		if node == temp {
+			break
+		}
+	}
 }
