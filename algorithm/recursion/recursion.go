@@ -22,7 +22,7 @@ func FiboTail(m, n, q int) int {
 	return FiboTail(m-1, q, n+q)
 }
 
-//二分查找
+//二分查找 随机
 func BinarySearch(array []int, target int, left, right int) int {
 	if left > right {
 		return -1
@@ -31,6 +31,26 @@ func BinarySearch(array []int, target int, left, right int) int {
 	mid := (left + right) / 2
 	middleVal := array[mid]
 	if middleVal == target {
+		return mid
+	}
+	if middleVal > target {
+		return BinarySearch(array, target, 0, mid-1)
+	}
+	return BinarySearch(array, target, mid+1, right)
+}
+
+func BinarySearchRight(array []int, target, left, right int) int {
+	if left > right {
+		return -1
+	}
+
+	mid := (left + right) / 2
+	middleVal := array[mid]
+	if middleVal == target {
+		nextLeft := BinarySearch(array, target, mid+1, right)
+		if nextLeft != -1 {
+			return nextLeft
+		}
 		return mid
 	}
 	if middleVal > target {

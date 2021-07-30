@@ -35,3 +35,14 @@ func TestBinarySearch(t *testing.T) {
 	result2 := BinarySearch(array, target2, 0, len(array)-1)
 	t.Logf("arr:%v;find %v;result:%v", array, target2, result2)
 }
+
+func TestBinarySearchRight(t *testing.T) {
+	array := []int{0, 1, 2, 2, 2, 5}
+	target := 2
+	result := BinarySearch(array, target, 0, len(array)-1)
+	t.Logf("arr:%v;find %v;result:%v", array, target, result)
+
+	target2 := 2
+	result2 := BinarySearchRight(array, target2, 0, len(array)-1)
+	t.Logf("arr:%v;find %v;result:%v", array, target2, result2)
+}
