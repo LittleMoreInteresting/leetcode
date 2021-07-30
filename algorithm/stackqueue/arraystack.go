@@ -39,6 +39,10 @@ func (stack *ArrayStack) Pop() string {
 	return v
 }
 
+func (stack *ArrayStack) Size() int {
+	return stack.size
+}
+
 func (stack *ArrayStack) Peek() string {
 	if stack.size == 0 {
 		panic("stack empty")
