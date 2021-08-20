@@ -26,8 +26,8 @@ func TestFiboTail(t *testing.T) {
 }
 
 func TestBinarySearch(t *testing.T) {
-	array := []int{1, 5, 9, 15, 81, 89, 123, 189, 333}
-	target := 500
+	array := []int{2, 5, 7, 7, 7, 9, 11}
+	target := 7
 	result := BinarySearch(array, target, 0, len(array)-1)
 	t.Logf("arr:%v;find %v;result:%v", array, target, result)
 
