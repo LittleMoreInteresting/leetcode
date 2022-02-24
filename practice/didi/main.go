@@ -5,6 +5,9 @@ import (
 	"time"
 )
 
+/**
+题目：已知方法 curl  要求实现  MutilCurl 能够制定并发请求数量，并返回请求错误
+*/
 func main() {
 	mutil := MutilCurl(4)
 	fmt.Printf("%v\n", mutil)
