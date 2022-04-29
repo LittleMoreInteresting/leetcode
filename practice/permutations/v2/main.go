@@ -5,28 +5,27 @@ import "fmt"
 var res [][]int
 
 func permute(nums []int) [][]int {
+	res = make([][]int, 0)
 	track, used := []int{}, make([]bool, len(nums))
 	backtrack(nums, track, used)
 	return res
 }
 
-func backtrack(nums, track []int, used []bool) {
+func backtrack(nums []int, track []int, used []bool) {
 	if len(nums) == len(track) {
-		cp := make([]int, len(track))
-		copy(cp, track) //消除切片底层公用数据影响
-		res = append(res, cp)
-		return
+		tmp := make([]int,len(track))
+		copy(tmp,track)
+		res = append(res,tmp)
+		return 
 	}
-
-	for i := 0; i < len(nums); i++ {
+	for i := 0;i<len(nums); i++ {
 		if used[i] {
 			continue
 		}
-		track = append(track, nums[i])
+		track = append(track, nums[i]);
 		used[i] = true
-		backtrack(nums, track, used)
-
-		track = track[0 : len(track)-1]
+		backtrack(nums,track,used)
+		track = track[:len(track)-1]
 		used[i] = false
 	}
 }
