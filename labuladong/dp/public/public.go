@@ -1,4 +1,4 @@
-package dp
+package public
 
 func Min(a ...int) int {
 	res := a[0]
