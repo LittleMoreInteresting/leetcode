@@ -1,11 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"leetcode/labuladong/dp/public"
 )
 
 func main() {
-
+	fmt.Println(minDistance("111", "A11"))
 }
 func minDistance(text1 string, text2 string) int {
 	m, n := len(text1), len(text2)
@@ -22,5 +23,5 @@ func minDistance(text1 string, text2 string) int {
 			dp_i_j = temp
 		}
 	}
-	return m-dp[n]+n-dp[n]
+	return m - dp[n] + n - dp[n]
 }
