@@ -45,7 +45,6 @@ func main() {
 		sig(50*time.Second),
 		sig(01*time.Minute),
 	)
-
 	fmt.Printf("done after %v", time.Since(start))
 }
 
