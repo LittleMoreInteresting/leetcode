@@ -12,7 +12,7 @@ func Partition(nums *[]int, low, height int) int {
 			Swap(nums, i, j)
 			i++
 		}
-		for i < j && (*nums)[i] < pivot {
+		for i < j && (*nums)[i] <= pivot {
 			i++
 		}
 		if i < j {
