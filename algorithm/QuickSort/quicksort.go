@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func Partition(nums *[]int, low, height int) int {
+func Partition0(nums *[]int, low, height int) int {
 	i, j, pivot := low, height, (*nums)[low]
 	for i < j {
 		for i < j && (*nums)[j] > pivot {
@@ -20,6 +20,28 @@ func Partition(nums *[]int, low, height int) int {
 			j--
 		}
 	}
+	return i
+}
+func Partition(nums *[]int, low, height int) int {
+	i, j, pivot := low, height, (*nums)[low]
+	for i < j {
+		for i < j && (*nums)[j] > pivot {
+			j--
+		}
+		for i < j && (*nums)[i] <= pivot {
+			i++
+		}
+		if i < j {
+			Swap(nums, i, j)
+			i++
+			j--
+		}
+	}
+	if (*nums)[i] > pivot {
+		Swap(nums, i-1, low)
+		return i - 1
+	}
+	Swap(nums, i, low)
 	return i
 }
 
