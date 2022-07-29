@@ -21,22 +21,24 @@ func split(head *Node) {
 	show(head)
 	for n != nil {
 		if sw {
-			first.Next = n
-			first = first.Next
+			h1.Next = n
+			h1 = h1.Next
 		} else {
-			second.Next = n
-			second = second.Next
+			h2.Next = n
+			h2 = h2.Next
 		}
-		n = n.Next
+		temp := n.Next
+		n.Next = nil
+		n = temp
 		sw = !sw
 	}
-	if sw {
-		first.Next = nil
+	/*if sw {
+		h1.Next = nil
 	} else {
-		second.Next = nil
-	}
-	show(h1.Next)
-	show(h2.Next)
+		h2.Next = nil
+	}*/
+	show(first.Next)
+	show(second.Next)
 }
 
 func show(head *Node) {
