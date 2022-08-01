@@ -34,14 +34,14 @@ func longestPalindrome_DP(s string) string {
 	dp := initDp(length)
 	//2 定义初始状态
 	start, longest := 0, 1
-	for i := 0; i < length; i++ {
+	dp[length-1][length-1] = true
+	for i := 0; i < length-1; i++ {
 		dp[i][i] = true
-		if i < length-1 {
-			dp[i][i+1] = s[i] == s[i+1]
-			if dp[i][i+1] {
-				start = i
-				longest = 2
-			}
+
+		dp[i][i+1] = s[i] == s[i+1]
+		if dp[i][i+1] {
+			start = i
+			longest = 2
 		}
 	}
 
