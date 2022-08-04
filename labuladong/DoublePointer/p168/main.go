@@ -20,8 +20,8 @@ func validPalindromeRemove(s string, remove bool) bool {
 			remove = true
 			fmt.Println("rm1", left, string(s[left]), right, string(s[right]), s[left+1:right+1])
 			fmt.Println("rm2", left, string(s[left]), right, string(s[right]), s[left:right])
-			if validPalindromeRemove(s[left+1:right+1], true) ||
-				validPalindromeRemove(s[left:right], true) {
+			if validPalindromeRemove(s[left+1:right+1], remove) ||
+				validPalindromeRemove(s[left:right], remove) {
 				return true
 			}
 		}
