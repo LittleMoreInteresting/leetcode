@@ -25,10 +25,10 @@ func Partition0(nums *[]int, low, height int) int {
 func Partition(nums *[]int, low, height int) int {
 	i, j, pivot := low, height, (*nums)[low]
 	for i < j {
-		for i <= j && (*nums)[j] > pivot {
+		for i < j && (*nums)[j] > pivot {
 			j--
 		}
-		for i <= j && (*nums)[i] < pivot {
+		for i < j && (*nums)[i] <= pivot {
 			i++
 		}
 		if i < j {
@@ -66,7 +66,7 @@ func main() {
 	nums = []int{5, 2}
 	QuickSort(&nums, 0, len(nums)-1)
 	fmt.Println(nums)
-	nums = []int{2, 2, 2, 2, 2, 2, 2, 2}
+	nums = []int{2, 2, 3, 2, 3, 2, 2, 2}
 	QuickSort(&nums, 0, len(nums)-1)
 	fmt.Println(nums)
 }
