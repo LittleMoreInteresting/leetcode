@@ -50,7 +50,7 @@ func main() {
 	nums = []int{}
 	MergeSort(&nums, 0, len(nums)-1)
 	fmt.Println(nums)
-	nums = []int{2}
+	nums = []int{2, 2, 3, 2, 3, 2, 2, 2}
 	MergeSort(&nums, 0, len(nums)-1)
 	fmt.Println(nums)
 }
