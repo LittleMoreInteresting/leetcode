@@ -22,7 +22,7 @@ func Partition0(nums *[]int, low, height int) int {
 	}
 	return i
 }
-func Partition(nums *[]int, low, height int) int {
+func Partition1(nums *[]int, low, height int) int {
 	i, j, pivot := low, height, (*nums)[low]
 	for i < j {
 		for i < j && (*nums)[j] > pivot {
@@ -42,6 +42,19 @@ func Partition(nums *[]int, low, height int) int {
 		return i - 1
 	}
 	Swap(nums, i, low)
+	return i
+}
+func Partition(nums *[]int, low, height int) int {
+	i, pivot := low, (*nums)[height]
+	for j := low; j < height; j++ {
+		if (*nums)[j] < pivot {
+			if i != j {
+				(*nums)[i], (*nums)[j] = (*nums)[j], (*nums)[i]
+			}
+			i++
+		}
+	}
+	(*nums)[i], (*nums)[height] = (*nums)[height], (*nums)[i]
 	return i
 }
 

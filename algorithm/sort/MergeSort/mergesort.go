@@ -25,6 +25,7 @@ func Merge(A *[]int, low, mid, height int) {
 		j++
 		k++
 	}
+	copy((*A)[low:height+1], B)
 	i, k = low, 0
 	for i <= height {
 		(*A)[i] = B[k]
