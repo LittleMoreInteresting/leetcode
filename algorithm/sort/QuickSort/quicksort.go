@@ -44,25 +44,25 @@ func Partition1(nums *[]int, low, height int) int {
 	Swap(nums, i, low)
 	return i
 }
-func Partition(nums *[]int, low, height int) int {
-	i, pivot := low, (*nums)[height]
-	for j := low; j < height; j++ {
-		if (*nums)[j] < pivot {
-			if i != j {
-				(*nums)[i], (*nums)[j] = (*nums)[j], (*nums)[i]
-			}
-			i++
-		}
-	}
-	(*nums)[i], (*nums)[height] = (*nums)[height], (*nums)[i]
-	return i
-}
 
 func Swap(nums *[]int, i, j int) {
 	(*nums)[i], (*nums)[j] = (*nums)[j], (*nums)[i]
 }
 
-func QuickSort(nums *[]int, low, height int) {
+func Partition(nums []int, low, height int) int {
+	i, pivot := low, nums[height]
+	for j := low; j < height; j++ {
+		if nums[j] < pivot {
+			if i != j {
+				nums[i], nums[j] = nums[j], nums[i]
+			}
+			i++
+		}
+	}
+	nums[i], nums[height] = nums[height], nums[i]
+	return i
+}
+func QuickSort(nums []int, low, height int) {
 	if low < height {
 		mid := Partition(nums, low, height)
 		QuickSort(nums, low, mid-1)
@@ -71,15 +71,15 @@ func QuickSort(nums *[]int, low, height int) {
 }
 func main() {
 	nums := []int{2, 4, 2, 5, 762, 141}
-	QuickSort(&nums, 0, len(nums)-1)
+	QuickSort(nums, 0, len(nums)-1)
 	fmt.Println(nums)
 	nums = []int{}
-	QuickSort(&nums, 0, len(nums)-1)
+	QuickSort(nums, 0, len(nums)-1)
 	fmt.Println(nums)
 	nums = []int{5, 2}
-	QuickSort(&nums, 0, len(nums)-1)
+	QuickSort(nums, 0, len(nums)-1)
 	fmt.Println(nums)
 	nums = []int{2, 2, 3, 2, 3, 2, 2, 2}
-	QuickSort(&nums, 0, len(nums)-1)
+	QuickSort(nums, 0, len(nums)-1)
 	fmt.Println(nums)
 }
