@@ -1,10 +1,20 @@
-package p215
+package main
+
+import "fmt"
+
+func main() {
+	nums := []int{1, 3, 5, 5, 9, 3, 3}
+	k := findKthLargest(nums, 4)
+	fmt.Println(k, nums)
+}
 
 func findKthLargest(nums []int, k int) int {
 	l, r := 0, len(nums)-1
 	k = len(nums) - 1 - k
 	for l <= r {
 		p := Partition(nums, l, r)
+		fmt.Println(p, l, r)
+		fmt.Println(nums)
 		if p < k {
 			// 第 k 大的元素在 nums[p+1..hi] 中
 			l = p + 1
