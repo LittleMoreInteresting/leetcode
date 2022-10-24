@@ -9,39 +9,32 @@ func main() {
 	fmt.Println(search(nums, -1))
 }
 
-func quicksort(nums []int, l, h int) {
-	if l >= h {
+func quicksort(nums []int, lo, he int) {
+	if lo >= he {
 		return
 	}
-	p := partition(nums, l, h)
-
-	quicksort(nums, l, p-1)
-	quicksort(nums, p+1, h)
-
+	p := partition(nums, lo, he)
+	quicksort(nums, lo, p-1)
+	quicksort(nums, p+1, he)
 }
 
-func partition(nums []int, l, h int) int {
-	point := nums[l] // 取第一个数
-	i, j := l+1, h   // 区间 l+1...h  l最后
-	for i <= j {     // 区间 nums[i,j]
-		for i < h && nums[i] <= point {
-			// 遍历结束后 nums[i] > point
+func partition(nums []int, lo, he int) int {
+	point := nums[lo]
+	i, j := lo+1, he
+	for i <= j {
+		for i < he && nums[i] <= point {
 			i++
 		}
-		for j > l && nums[j] > point {
-			// 遍历结束后 nums[j] <= point
+		for j > lo && nums[j] > point {
 			j--
 		}
 		if i >= j {
 			break
 		}
-		// 此时 [l, i) <= pivot && (j, h] > pivot
-		// 交换 nums[j] 和 nums[i]
-		//sw i j
 		nums[i], nums[j] = nums[j], nums[i]
-		// 此时 [lo, i] <= pivot && [j, hi] > pivot
 	}
-	nums[l], nums[j] = nums[j], nums[l]
+	nums[lo], nums[j] = nums[j], nums[lo]
+
 	return j
 }
 
