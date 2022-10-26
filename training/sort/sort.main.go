@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	nums := []int{1, 2, 3, 2, 4, -1, 9, -2, 4}
@@ -33,8 +35,7 @@ func partition(nums []int, lo, he int) int {
 		}
 		nums[i], nums[j] = nums[j], nums[i]
 	}
-	nums[lo], nums[j] = nums[j], nums[lo]
-
+	nums[j], nums[lo] = nums[lo], nums[j]
 	return j
 }
 
