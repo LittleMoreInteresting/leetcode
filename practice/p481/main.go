@@ -5,6 +5,7 @@ import "fmt"
 func main() {
 	fmt.Println(magicalString(4))
 	fmt.Println(magicalString1(4))
+	fmt.Println('a' - 'A')
 }
 
 func magicalString(n int) int {
