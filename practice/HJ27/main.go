@@ -35,6 +35,7 @@ func main() {
 			for _, v := range tag { // 两个map作比较
 				if map1[v] != map2[v] {
 					ta = 1
+					break
 				}
 			}
 			if ta == 0 {
