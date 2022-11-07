@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 	nums := []int{1, 2, 3, 2, 4, -1, 9, -2, 4}
@@ -11,23 +9,23 @@ func main() {
 	fmt.Println(search(nums, -1))
 }
 
-func quicksort(nums []int, lo, he int) {
-	if lo >= he {
+func quicksort(nums []int, l, h int) {
+	if l >= h {
 		return
 	}
-	p := partition(nums, lo, he)
-	quicksort(nums, lo, p-1)
-	quicksort(nums, p+1, he)
+	p := partition(nums, l, h)
+	quicksort(nums, l, p-1)
+	quicksort(nums, p+1, h)
 }
 
-func partition(nums []int, lo, he int) int {
-	point := nums[lo]
-	i, j := lo+1, he
+func partition(nums []int, l, h int) int {
+	point := nums[l]
+	i, j := l+1, h
 	for i <= j {
-		for i < he && nums[i] <= point {
+		for i < h && nums[i] <= point {
 			i++
 		}
-		for j > lo && nums[j] > point {
+		for j > l && nums[j] > point {
 			j--
 		}
 		if i >= j {
@@ -35,7 +33,7 @@ func partition(nums []int, lo, he int) int {
 		}
 		nums[i], nums[j] = nums[j], nums[i]
 	}
-	nums[lo], nums[j] = nums[j], nums[lo]
+	nums[l], nums[j] = nums[j], nums[l]
 	return j
 }
 
