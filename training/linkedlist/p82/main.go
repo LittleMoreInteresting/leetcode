@@ -11,6 +11,10 @@ func main() {
 	head := &ListNode{1, &ListNode{2, &ListNode{3, &ListNode{3, &ListNode{5, nil}}}}}
 	ret := deleteDuplicates(head)
 	show(ret)
+
+	head = &ListNode{1, &ListNode{2, &ListNode{3, &ListNode{3, &ListNode{5, nil}}}}}
+	ret = deleteDuplicates_83(head)
+	show(ret)
 }
 func deleteDuplicates(head *ListNode) *ListNode {
 	if head == nil {
@@ -30,7 +34,17 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	}
 	return dummy.Next
 }
-
+func deleteDuplicates_83(head *ListNode) *ListNode {
+	p := head
+	for p != nil && p.Next != nil {
+		if p.Val == p.Next.Val {
+			p.Next = p.Next.Next
+		} else {
+			p = p.Next
+		}
+	}
+	return head
+}
 func show(node *ListNode) {
 	if node == nil {
 		fmt.Println("---------------------------")
