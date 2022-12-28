@@ -25,7 +25,7 @@ func Merge(A *[]int, low, mid, height int) {
 		j++
 		k++
 	}
-	copy((*A)[low:height+1], B)
+	//copy((*A)[low:height+1], B)
 	i, k = low, 0
 	for i <= height {
 		(*A)[i] = B[k]
@@ -45,7 +45,7 @@ func MergeSort(A *[]int, low, height int) {
 }
 
 func main() {
-	nums := []int{2, 4, 2, 5, 762, 141}
+	nums := []int{2, 4, 2, 5, 762, 141, 9, 9, 9}
 	MergeSort(&nums, 0, len(nums)-1)
 	fmt.Println(nums)
 	nums = []int{}
