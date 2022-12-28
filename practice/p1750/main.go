@@ -24,6 +24,5 @@ func minimumLength(s string) int {
 			break
 		}
 	}
-	fmt.Println(left, right)
 	return right - left + 1
 }
